@@ -1,19 +1,29 @@
 {
-  "name": "zazu-template",
+  "name": "zazu-youdao",
   "version": "1.0.0",
-  "description": "Zazu Template for starting your own plugin.",
-  "main": "zazu.js",
-  "scripts": {
-    "lint": "eslint .",
-    "test": "mocha ./test"
-  },
-  "license": "Unlicense",
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "eslint": "^3.13.0",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
-    "mocha": "^2.5.3"
+  "description": "有道翻译的 Zazu 插件",
+  "blocks": {
+    "input": [
+      {
+        "id": "translate",
+        "type": "PrefixScript",
+        "keyword": "t",
+        "space": true,
+        "args": "Required",
+        "script": "src/index.js",
+        "debounce": 100,
+        "title": "有道翻译",
+        "subtitle": "Goto Zazu Template GitHub Repo",
+        "icon": "fa-search",
+        "connections": ["Copy"]
+      },
+    ],
+    "output": [
+      {
+        "id": "Copy",
+        "type": "CopyToClipboard",
+        "text": "{value}"
+      }
+    ]
   }
 }
